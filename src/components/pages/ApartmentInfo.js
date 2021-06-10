@@ -39,7 +39,7 @@ getAddress = (idNha) =>{
         });
 }
 getPrice = (idPrice) => {
-    axios.post('http://localhost:33456/api/customer/getApartmentPrice',{idPrice: idPrice}).then(
+    axios.post('https://rental-apartment-huflit.herokuapp.com/api/customer/getApartmentPrice',{idPrice: idPrice}).then(
         (response) => {
             this.state.price = response.data;
             this.setState(this);

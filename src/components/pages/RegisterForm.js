@@ -15,7 +15,7 @@ class RegisterForm extends Component {
   }
   confirmRegister = () => {
     axios
-      .post("http://localhost:33456/api/partner/register", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/register", {
         username: this.loginNameRef.current.value,
         password: this.loginPWRef.current.value,
       })
