@@ -15,7 +15,7 @@ class LoginForm extends Component {
   }
   confirmLogin = () => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/signin", {
+      .post("http://localhost:33456/api/partner/signin", {
         username: this.loginNameRef.current.value,
         password: this.loginPWRef.current.value,
       })
@@ -84,7 +84,7 @@ class LoginForm extends Component {
               <p>
                 Not yet a partner?{" "}
                 <Link
-                  to="/home"
+                  to="/register"
                   style={{ color: "#5899d6", fontWeight: "600" }}
                 >
                   Register here
