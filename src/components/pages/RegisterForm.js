@@ -1,7 +1,6 @@
 /* eslint-disable react/no-direct-mutation-state */
 import { Component, createRef } from "react";
 import "../../style/pages/RegisterForm.scss";
-import "antd/dist/antd.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 

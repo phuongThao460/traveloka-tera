@@ -49,6 +49,7 @@ h1 {
   padding-top: 67%;
   overflow: hidden;
   margin-bottom: inherit;
+  margin-left: 0;
 }
 
 .fade-img {
@@ -90,6 +91,8 @@ h1 {
 }
 
 .cards__item__info {
+  height: 50px;
+  margin: 0px;
   padding: 20px 30px 30px;
   background-color: #fff;
 }
@@ -98,6 +101,7 @@ h1 {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+  margin: 0;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -116,4 +120,7 @@ h1 {
   .cards__item {
     margin-bottom: 2rem;
   }
+}
+figure{
+  margin: 0;
 }
