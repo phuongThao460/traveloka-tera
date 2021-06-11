@@ -48,8 +48,6 @@ class GenerationInformation extends Component {
   }
   createApartment = () => {
     Axios.post(
-      // Sửa cái này nè, đoi sv rồi
-      // dựa theo cái doc bà gửi sửa pk
       "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/createApartment",
       {
         idNha: this.idNha.current.value,

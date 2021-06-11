@@ -42,7 +42,7 @@ class RegisterForm extends Component {
               </p>
               <div className="reg-form">
                 <span className="form-label">Your email address</span>
-                <i class="fa fa-envelope icon"></i>
+                <i className="fa fa-envelope icon"></i>
                 <input
                   className="form-input"
                   type="email"
@@ -67,7 +67,7 @@ class RegisterForm extends Component {
                   ref={this.loginPWRef}
                 ></input>
                 <button onClick={this.confirmRegister} id="btn-next">
-                  Next
+                  Register
                 </button>
               </div>
               <div className="line-spacing"></div>
