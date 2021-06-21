@@ -57,23 +57,23 @@ class Navbar extends React.Component {
             </ul>
             <div className="verticalLine"></div>
             {idUser !== null ? (
-              <div class="nav-item dropdown">
+              <div className="nav-item dropdown">
                 <a
                   href="/#"
                   data-toggle="dropdown"
-                  class="nav-item nav-link dropdown-toggle user-action"
+                  className="nav-item nav-link dropdown-toggle user-action"
                 >
                   <div style={{ display: "inline-block", fontSize: "15px" }}>
                     <p>You login as: </p>
                     <p>{username}</p>
-                    <b class="caret"></b>
+                    <b className="caret"></b>
                   </div>
                 </a>
                 <div className="dropdown-menu">
                   <Link to="/detailAndEditProfile" className="dropdown-item">
                     <i className="fa fa-user-o"></i> Profile
                   </Link>
-                  <div class="divider dropdown-divider"></div>
+                  <div className="divider dropdown-divider"></div>
                   <Link to="/" onClick={this.handleClick} className="dropdown-item">
                     <i className="material-icons">&#xE8AC;</i> Logout
                   </Link>

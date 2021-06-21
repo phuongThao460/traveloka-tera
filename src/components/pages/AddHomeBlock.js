@@ -67,10 +67,6 @@ class AddHomeBlock extends React.Component {
                       type="button"
                       className="c-btn c-btn--theme-tera c-btn--variant-default c-btn--size-sm c-btn--has-icon css-7mp1uz btn btn--primary btn--small "
                     >
-                      <g id="add">
-                        <polygon points="12.997 4 12.997 11.003 20 11.003 20 12.997 12.997 12.997 12.997 20 11.003 20 11.003 12.997 4 12.997 4 11.003 11.003 11.003 11.003 4"></polygon>
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                      </g>
                       <span>
                         <span>Your Apartments</span>
                       </span>
@@ -100,16 +96,7 @@ class AddHomeBlock extends React.Component {
                       type="button"
                       className="c-btn c-btn--theme-tera c-btn--variant-default c-btn--size-sm c-btn--has-icon css-7mp1uz btn btn--primary btn--small"
                     >
-                      <svg
-                        className="c-icon css-36kz25"
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet"
-                      >
-                        <g id="add">
-                          <polygon points="12.997 4 12.997 11.003 20 11.003 20 12.997 12.997 12.997 12.997 20 11.003 20 11.003 12.997 4 12.997 4 11.003 11.003 11.003 11.003 4"></polygon>
-                          <path d="M0 0h24v24H0z" fill="none"></path>
-                        </g>
-                      </svg>
+                      <i className="fa fa-plus fa-fw" aria-hidden="true"></i>
                       <span>
                         <span>List New Accommodation</span>
                       </span>
