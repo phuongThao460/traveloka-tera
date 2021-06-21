@@ -9,15 +9,31 @@ class RegisterForm extends Component {
     super(props);
     this.state = {
       idTk: 0,
+      role: "CHBT",
     };
     this.loginNameRef = createRef();
     this.loginPWRef = createRef();
   }
   confirmRegister = () => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/register", {
+      .post("http://localhost:33456/api/partner/register", {
         username: this.loginNameRef.current.value,
         password: this.loginPWRef.current.value,
+      })
+      .then((result) => {
+        alert(result.data);
+        this.props.history.push("/");
+      })
+      .catch((error) => {
+        alert(error.data);
+      });
+  };
+  confirmRegister2 = () => {
+    axios
+      .post("https://oka1kh.azurewebsites.net/api/partner", {
+        partnerUsername: this.loginNameRef.current.value,
+        partnerPass: this.loginPWRef.current.value,
+        partnerRole: this.state.role
       })
       .then((result) => {
         alert(result.data);
@@ -42,7 +58,7 @@ class RegisterForm extends Component {
               </p>
               <div className="reg-form">
                 <span className="form-label">Your email address</span>
-                <i className="fa fa-envelope icon"></i>
+                <i class="fa fa-envelope icon"></i>
                 <input
                   className="form-input"
                   type="email"
@@ -66,7 +82,7 @@ class RegisterForm extends Component {
                   placeholder="Enter your password here"
                   ref={this.loginPWRef}
                 ></input>
-                <button onClick={this.confirmRegister} id="btn-next">
+                <button onClick={this.confirmRegister2} id="btn-next">
                   Register
                 </button>
               </div>

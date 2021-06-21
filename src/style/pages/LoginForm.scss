@@ -1,8 +1,6 @@
 $font-app: Roboto, Arial, sans-serif;
 
 .flexbox {
-  justify-content: center;
-  display: flex;
   padding: 32px 0;
   background-color: #235d9f;
   .container {
@@ -38,6 +36,7 @@ $font-app: Roboto, Arial, sans-serif;
         .login-form {
           box-sizing: inherit;
           i {
+            
             position: absolute;
             color: #235d9f;
           }
@@ -65,7 +64,7 @@ $font-app: Roboto, Arial, sans-serif;
               border-color: #8c9fba;
             }
           }
-
+          
           .icon {
             padding: 10px;
             min-width: 40px;

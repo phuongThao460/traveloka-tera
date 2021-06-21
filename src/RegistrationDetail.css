@@ -5,7 +5,6 @@
   -moz-osx-font-smoothing: grayscale;
   -o-font-smoothing: antialiased;
   box-sizing: inherit;
-  font-family: Roboto, Arial, sans-serif;;
 }
 .oka-page {
   padding-top: 25px;
@@ -31,7 +30,7 @@ select {
   vertical-align: baseline;
   box-sizing: border-box;
 }
-#textarea{
+#textarea {
   outline: 0;
 }
 .css-detail {
@@ -116,7 +115,7 @@ select {
   background-color: rgb(255, 97, 92);
 }
 .slidebar-item--is-active {
-  font-weight: 600;
+  font-weight: 500;
   color: black !important;
   background-color: rgb(230, 241, 250) !important;
 }
@@ -1141,7 +1140,6 @@ textarea {
   font-size: 16px;
   background-color: white;
   border-radius: 5px;
-  cursor: pointer;
 }
 .css-contact {
   margin-right: 0px;
@@ -1156,4 +1154,203 @@ textarea {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+.navbar .navbar-toggle {
+  border-color: #fff;
+}
+
+.navbar .navbar-toggle .icon-bar {
+  background: #fff;
+}
+
+.navbar .navbar-toggle:focus,
+.navbar .navbar-toggle:hover {
+  background: transparent;
+}
+
+.navbar .navbar-nav .open .dropdown-menu {
+  background: #faf7fd;
+  border-radius: 1px;
+  border-color: #faf7fd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .divider {
+  background-color: #e9ecef !important;
+}
+.navbar .navbar-nav > a > i {
+  display: block;
+  text-align: center;
+}
+
+.navbar .dropdown-item i {
+  font-size: 16px;
+  min-width: 22px;
+}
+
+.navbar .dropdown-item .material-icons {
+  font-size: 21px;
+  line-height: 16px;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+.navbar .nav-item.open > a,
+.navbar .nav-item.open > a:hover,
+.navbar .nav-item.open > a:focus {
+  color: #fff;
+  background: none !important;
+}
+
+.navbar .dropdown-menu {
+  border-radius: 1px;
+  border-color: #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .dropdown-menu a {
+  color: #777 !important;
+  padding: 8px 20px;
+  line-height: normal;
+  font-size: 15px;
+}
+
+.navbar .dropdown-menu a:hover,
+.navbar .dropdown-menu a:focus {
+  color: #333 !important;
+  background: transparent !important;
+}
+.navbar .nav-item span {
+  position: relative;
+  top: 3px;
+}
+.sign-item {
+  margin-right: 15px;
+}
+.dropdown-toggle::after {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.table tbody tr .span-name {
+  padding: 0;
+  width: 28%;
+  font-weight: 500;
+  color: #797373;
+  padding-bottom: 12px;
+  padding-left: 12px;
+}
+.table tbody tr .p-name {
+  padding: 0;
+  padding-bottom: 12px;
+  word-break: break-all;
+  padding-right: 12px;
+}
+.btn-order {
+  width: 167px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bffc7;
+  height: 35px;
+  font-weight: 500;
+  color: white;
+}
+.ant-tabs-nav .ant-tabs-nav-wrap .ant-tabs-nav-list .ant-tabs-tab {
+  padding: 12px 25px;
+}
+
+.bloc-tabs {
+  padding-left: 46px;
+  display: flex;
+  width: 400px;
+  font-size: 18px;
+}
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+button {
+  border: none;
+}
+.content-tabs {
+  flex-grow: 1;
+  padding-left: 46px;
+  width: 1000px;
+}
+.content {
+  background: white;
+  padding-top: 20px;
+  /*padding-left: 20px;*/
+  padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.btn-back{
+  margin-top: 20px;
+  margin-left: 38px;
+  font-size: 17px;
+  color: #5893f1;
+}
+.btn-success-save{
+  outline: none;
+  box-shadow: none;
+  border: 1px solid rgb(252, 145, 0);
+  width: 250px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  background-color: rgb(252, 145, 0);
+  border-radius: 5px;
+}
+.btn-success-save:hover{
+  background-color: rgb(228, 148, 36);
+  border: 1px solid rgb(228, 148, 36);
 }

@@ -24,7 +24,7 @@ class MainContact extends React.Component {
   }
   createContact = () => {
     Axios.post(
-      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/contactRegistration",
+      "http://localhost:33456/api/partner/registrationDetail/contactRegistration",
       {
         fullName: this.fullName.current.value,
         email: this.email.current.value,
@@ -37,21 +37,17 @@ class MainContact extends React.Component {
         taxCode: this.taxCode.current.value,
         idTK: this.state.idTk.toString(),
       }
-    )
-      .then((response) => {
-        this.state.idTT = response.data;
-        this.setState(this);
-        console.log(this.state.idTT);
-        this.props.history.push(
-          "/registrationDetail/generationInformation/" + this.state.idTT
-        );
-      })
-      .catch((err) => console.log(err.response));
+    ).then((response) => {
+      this.state.idTT = response.data;
+      this.setState(this);
+      console.log(this.state.idTT);
+      this.props.history.push("/registrationDetail/generationInformation/" + this.state.idTT);
+    }).catch(err => console.log(err.response));
   };
   setName = (e) => {
     this.state.fullName = e.target.value;
     this.setState(this);
-  };
+  }
   render() {
     return (
       <div className="oka-page">
@@ -71,15 +67,7 @@ class MainContact extends React.Component {
                     >
                       <div className="c-flexbox css-nb">
                         <span className="text css-nb-text">Main Contact</span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
+                        
                       </div>
                     </Link>
                     <Link
@@ -91,35 +79,7 @@ class MainContact extends React.Component {
                         <span className="text css-nb-text">
                           General Information
                         </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link
-                      key="3"
-                      to="/registrationDetail/propertyFacilities"
-                      className="slidebar-item css-check"
-                    >
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">
-                          Property Facilities
-                        </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
+                        
                       </div>
                     </Link>
                     <Link
@@ -129,98 +89,11 @@ class MainContact extends React.Component {
                     >
                       <div className="c-flexbox css-nb">
                         <span className="text css-nb-text">Rooms</span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link
-                      key="5"
-                      to="/registrationDetail/roomFacilities"
-                      className="slidebar-item css-check"
-                    >
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">
-                          Room Facilities
-                        </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link key="6" to="" className="slidebar-item css-check">
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">Photos</span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link key="7" to="" className="slidebar-item css-check">
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">
-                          Payment Information
-                        </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
+                        
                       </div>
                     </Link>
                   </div>
                 </span>
-                <div
-                  className="table__block css-tbl-block"
-                  style={{ marginTop: "30px" }}
-                >
-                  <label className="block__label css-label">
-                    <span>Mandatory Fields Progress</span>
-                  </label>
-                  <div className="block__row css-row">
-                    <div className="block__column css-block-col">
-                      <div className="progress css-progress">
-                        <div
-                          className="progress__bar"
-                          role="progressbar"
-                          aria-valuenow="52"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                          style={{ width: "52%" }}
-                        ></div>
-                      </div>
-                    </div>
-                    <div
-                      align="right"
-                      className="column css-col"
-                      style={{ paddingLeft: "0px" }}
-                    >
-                      <span className="text css-text">52%</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -256,55 +129,54 @@ class MainContact extends React.Component {
                             <span className="label-required">*</span>
                           </label>
                         </div>
-                        {this.state.fullName == null ||
-                        this.state.fullName === "" ? (
-                          <div className="box-column css-bxcol2">
-                            <div className="input-group css-inp">
-                              <div className="input-group__inner">
-                                <div className="input control-container css-radio-gr">
-                                  <div className="__inner">
-                                    <div className="__padder">
-                                      <input
-                                        pattern="[^\s]+"
-                                        onChange={this.setName}
-                                        ref={this.fullName}
-                                        touched="true"
-                                        type="text"
-                                        className="css-txt -control"
-                                      />
-                                    </div>
+                        {this.state.fullName == null || this.state.fullName === "" ? <div className="box-column css-bxcol2">
+                          <div className="input-group css-inp">
+                            <div className="input-group__inner">
+                              <div className="input control-container css-radio-gr">
+                                <div className="__inner">
+                                  <div className="__padder">
+                                    <input
+                                    pattern="[^\s]+"
+                                      onChange={this.setName}
+                                      ref={this.fullName}
+                                      touched="true"
+                                      type="text"
+                                      className="css-txt -control"
+                                    />
                                   </div>
                                 </div>
                               </div>
-                              <ul className="css-error --simple">
-                                <li>
-                                  <span>This section must be filled.</span>
-                                </li>
-                              </ul>
                             </div>
+                            <ul className="css-error --simple">
+                              <li>
+                                <span>This section must be filled.</span>
+                              </li>
+                            </ul>
                           </div>
-                        ) : (
-                          <div className="box-column css-bxcol2">
-                            <div className="input-group css-inp">
-                              <div className="input-group__inner">
-                                <div className="input control-container css-radio-gr">
-                                  <div className="__inner">
-                                    <div className="__padder">
-                                      <input
-                                        onChange={this.setName}
-                                        ref={this.fullName}
-                                        touched="true"
-                                        type="text"
-                                        className="css-txt -control"
-                                      />
-                                    </div>
+                        </div>
+                        :
+                        <div className="box-column css-bxcol2">
+                          <div className="input-group css-inp">
+                            <div className="input-group__inner">
+                              <div className="input control-container css-radio-gr">
+                                <div className="__inner">
+                                  <div className="__padder">
+                                    <input
+                                    onChange={this.setName}
+                                      ref={this.fullName}
+                                      touched="true"
+                                      type="text"
+                                      className="css-txt -control"
+                                    />
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        )}
-                      </div>
+                        </div>
+                      
+                      }
+                        </div>
                       <div
                         className="line css-line"
                         style={{ marginTop: "0px" }}
@@ -515,8 +387,6 @@ class MainContact extends React.Component {
                             <span className="label-required">*</span>
                           </label>
                         </div>
-                        
-                        
                         <div
                           className="c-column css-bxcol2"
                           style={{ marginTop: "-4px" }}
@@ -560,7 +430,7 @@ class MainContact extends React.Component {
                         className="line css-line"
                         style={{ marginTop: "0px" }}
                       ></div>
-                      {/* Address */}
+                       {/* Address */}
                       <div className="box-row css-row">
                         <div
                           className="box-column css-box-col"
@@ -639,7 +509,11 @@ class MainContact extends React.Component {
                 </div>
               </div>
               <div className="block css-contact">
-                <button className="btn-contact" onClick={this.createContact}>
+                
+                <button
+                  className="btn-contact"
+                  onClick={this.createContact}
+                >
                   Save and Continues
                 </button>
               </div>

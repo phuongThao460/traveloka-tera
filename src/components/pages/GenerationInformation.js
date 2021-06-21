@@ -48,7 +48,9 @@ class GenerationInformation extends Component {
   }
   createApartment = () => {
     Axios.post(
-      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/createApartment",
+      // Sửa cái này nè, đoi sv rồi
+      // dựa theo cái doc bà gửi sửa pk
+      "http://localhost:33456/api/partner/registrationDetail/createApartment",
       {
         idNha: this.idNha.current.value,
         idChuHo: this.state.idMain.toString(),
@@ -73,13 +75,15 @@ class GenerationInformation extends Component {
     )
       .then((response) => {
         console.log(response.data);
-        this.props.history.push("/registrationDetail/propertyFacilities/" + this.idNha.current.value);
+        this.props.history.push(
+          "/registrationDetail/rooms/" + this.idNha.current.value
+        );
       })
       .catch((err) => console.log(err.response));
   };
   getListStyle = () => {
     Axios.post(
-      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListApartType",
+      "http://localhost:33456/api/partner/registrationDetail/getListApartType",
       {}
     ).then((response) => {
       this.state.lstStyle = response.data;
@@ -88,7 +92,7 @@ class GenerationInformation extends Component {
   };
   getListCountry = () => {
     Axios.post(
-      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListCountry",
+      "http://localhost:33456/api/partner/registrationDetail/getListCountry",
       {}
     ).then((response) => {
       this.state.lstCountry = response.data;
@@ -97,7 +101,7 @@ class GenerationInformation extends Component {
   };
   getListCity = () => {
     Axios.post(
-      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListCity",
+      "http://localhost:33456/api/partner/registrationDetail/getListCity",
       { countryId: this.state.idCountry }
     ).then((response) => {
       this.state.lstCity = response.data;
@@ -106,7 +110,7 @@ class GenerationInformation extends Component {
   };
   getListDistrict = () => {
     Axios.post(
-      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListDistrict",
+      "http://localhost:33456/api/partner/registrationDetail/getListDistrict",
       { cityId: this.state.idCity }
     ).then((response) => {
       this.state.lstDistrict = response.data;
@@ -150,15 +154,6 @@ class GenerationInformation extends Component {
                     >
                       <div className="c-flexbox css-nb">
                         <span className="text css-nb-text">Main Contact</span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
                       </div>
                     </Link>
                     <Link
@@ -170,136 +165,19 @@ class GenerationInformation extends Component {
                         <span className="text css-nb-text">
                           General Information
                         </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
                       </div>
                     </Link>
                     <Link
                       key="3"
-                      to="/registrationDetail/propertyFacilities"
-                      className="slidebar-item css-check"
-                    >
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">
-                          Property Facilities
-                        </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link
-                      key="4"
                       to="/registrationDetail/rooms"
                       className="slidebar-item css-check"
                     >
                       <div className="c-flexbox css-nb">
                         <span className="text css-nb-text">Rooms</span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link
-                      key="5"
-                      to="/registrationDetail/roomFacilities"
-                      className="slidebar-item css-check"
-                    >
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">
-                          Room Facilities
-                        </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link key="6" to="" className="slidebar-item css-check">
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">Photos</span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
-                      </div>
-                    </Link>
-                    <Link key="7" to="" className="slidebar-item css-check">
-                      <div className="c-flexbox css-nb">
-                        <span className="text css-nb-text">
-                          Payment Information
-                        </span>
-                        <span
-                          className="bagde__number bagde__color bagde__pill css-bagde"
-                          style={{
-                            paddingRight: "10px",
-                            paddingLeft: "10px",
-                          }}
-                        >
-                          7
-                        </span>
                       </div>
                     </Link>
                   </div>
                 </span>
-                <div
-                  className="table__block css-tbl-block"
-                  style={{ marginTop: "30px" }}
-                >
-                  <label className="block__label css-label">
-                    <span>Mandatory Fields Progress</span>
-                  </label>
-                  <div className="block__row css-row">
-                    <div className="block__column css-block-col">
-                      <div className="progress css-progress">
-                        <div
-                          className="progress__bar"
-                          role="progressbar"
-                          aria-valuenow="52"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                          style={{ width: "52%" }}
-                        ></div>
-                      </div>
-                    </div>
-                    <div
-                      align="right"
-                      className="column css-col"
-                      style={{ paddingLeft: "0px" }}
-                    >
-                      <span className="text css-text">52%</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -835,7 +713,10 @@ class GenerationInformation extends Component {
                                 className="input-group css-inp"
                                 style={{ display: "inline-block" }}
                               >
-                                <div className="input-group__inner" style={{width: "fit-content"}}>
+                                <div
+                                  className="input-group__inner"
+                                  style={{ width: "fit-content" }}
+                                >
                                   <div
                                     className="input control-container css-radio-gr"
                                     style={{ width: "130px" }}
@@ -1135,6 +1016,8 @@ class GenerationInformation extends Component {
                                           ref={this.gia}
                                           id="time"
                                           type="number"
+                                          min="100000"
+                                          max="100000000"
                                           defaultValue="07:30"
                                           className="-control css-txt"
                                         />
@@ -1177,6 +1060,8 @@ class GenerationInformation extends Component {
                                             style={{ width: "250px" }}
                                             ref={this.khuyenMai}
                                             type="number"
+                                            min="100000"
+                                            max="100000000"
                                             className="-control css-txt"
                                           />
                                         </div>
@@ -1187,7 +1072,7 @@ class GenerationInformation extends Component {
                               </div>
                             </div>
                           </div>
-                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1195,14 +1080,9 @@ class GenerationInformation extends Component {
               </div>
 
               <div className="block css-contact">
-                
-                  <button
-                    className="btn-contact"
-                    onClick={this.createApartment}
-                  >
-                    Save and Continues
-                  </button>
-              
+                <button className="btn-contact" onClick={this.createApartment}>
+                  Save and Continues
+                </button>
               </div>
             </div>
           </div>
