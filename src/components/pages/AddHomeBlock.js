@@ -13,7 +13,7 @@ class AddHomeBlock extends React.Component {
     };
   } 
   handleSubmit = () => {
-    axios.post("http://localhost:33456/api/partner/checkContactExist",{
+    axios.post("https://rental-apartment-huflit.herokuapp.com/api/partner/checkContactExist",{
 			idTk: this.state.idTk,
 		}).then((response) => {
 			console.log(response.data);

@@ -30,7 +30,7 @@ class Order extends React.Component {
 
   getListOrderNew = () => {
     axios
-      .post("http://localhost:33456/api/partner/getListOrderNew", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getListOrderNew", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {
@@ -42,7 +42,7 @@ class Order extends React.Component {
   };
   getListOrderAction = () => {
     axios
-      .post("http://localhost:33456/api/partner/getListOrderAction", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getListOrderAction", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {
@@ -55,7 +55,7 @@ class Order extends React.Component {
   };
   getListOrderFinished = () => {
     axios
-      .post("http://localhost:33456/api/partner/getListOrderFinished", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getListOrderFinished", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {
@@ -67,7 +67,7 @@ class Order extends React.Component {
   };
   getListOrderCancelled = () => {
     axios
-      .post("http://localhost:33456/api/partner/getListOrderCancelled", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getListOrderCancelled", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {

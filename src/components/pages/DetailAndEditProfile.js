@@ -65,7 +65,7 @@ class Modal extends Component {
   }
   handleSave = (idtt) => {
     axios
-      .post("http://localhost:33456/api/partner/updateContact", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/updateContact", {
         idTT: idtt.toString(),
         fullName: this.state.fullName,
         email: this.state.email,
@@ -377,7 +377,7 @@ class DetailAndEditProfile extends Component {
 
   showMainContact = () => {
     axios
-      .post("http://localhost:33456/api/partner/showContact", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showContact", {
         idTk: this.state.idTk.toString(),
       })
       .then((result) => {

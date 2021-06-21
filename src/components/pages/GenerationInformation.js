@@ -50,7 +50,7 @@ class GenerationInformation extends Component {
     Axios.post(
       // Sửa cái này nè, đoi sv rồi
       // dựa theo cái doc bà gửi sửa pk
-      "http://localhost:33456/api/partner/registrationDetail/createApartment",
+      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/createApartment",
       {
         idNha: this.idNha.current.value,
         idChuHo: this.state.idMain.toString(),
@@ -83,7 +83,7 @@ class GenerationInformation extends Component {
   };
   getListStyle = () => {
     Axios.post(
-      "http://localhost:33456/api/partner/registrationDetail/getListApartType",
+      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListApartType",
       {}
     ).then((response) => {
       this.state.lstStyle = response.data;
@@ -92,7 +92,7 @@ class GenerationInformation extends Component {
   };
   getListCountry = () => {
     Axios.post(
-      "http://localhost:33456/api/partner/registrationDetail/getListCountry",
+      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListCountry",
       {}
     ).then((response) => {
       this.state.lstCountry = response.data;
@@ -101,7 +101,7 @@ class GenerationInformation extends Component {
   };
   getListCity = () => {
     Axios.post(
-      "http://localhost:33456/api/partner/registrationDetail/getListCity",
+      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListCity",
       { countryId: this.state.idCountry }
     ).then((response) => {
       this.state.lstCity = response.data;
@@ -110,7 +110,7 @@ class GenerationInformation extends Component {
   };
   getListDistrict = () => {
     Axios.post(
-      "http://localhost:33456/api/partner/registrationDetail/getListDistrict",
+      "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListDistrict",
       { cityId: this.state.idCity }
     ).then((response) => {
       this.state.lstDistrict = response.data;

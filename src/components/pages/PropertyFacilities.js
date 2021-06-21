@@ -26,7 +26,7 @@ export default class PropertyFacilities extends Component {
   getListAnimal = () => {
     axios
       .post(
-        "http://localhost:33456/api/partner/registrationDetail/getListPropFaci",
+        "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListPropFaci",
         {}
       )
       .then((response) => {

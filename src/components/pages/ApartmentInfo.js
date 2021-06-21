@@ -16,7 +16,7 @@ class ApartmentInfo extends React.Component {
   }
   getApartmentInfo = () => {
     axios
-      .post("http://localhost:33456/api/partner/getDetailApartment", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getDetailApartment", {
         id: this.state.idApartment.toString(),
       })
       .then((response) => {
@@ -32,7 +32,7 @@ class ApartmentInfo extends React.Component {
   getType = (idLoaiNha) => {
     console.log(this.state.apartmentInfo.ID_LOAINHA);
     axios
-      .post("http://localhost:33456/api/partner/getTypeApart", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getTypeApart", {
         idType: idLoaiNha,
       })
       .then((response) => {
@@ -42,7 +42,7 @@ class ApartmentInfo extends React.Component {
   };
   getAddress = (idNha) => {
     axios
-      .post("http://localhost:33456/api/partner/getAddressApartment", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getAddressApartment", {
         id: idNha.toString(),
       })
       .then((response) => {
@@ -52,7 +52,7 @@ class ApartmentInfo extends React.Component {
   };
   getListRoom = (idNha) => {
     axios
-      .post("http://localhost:33456/api/partner/getListRoom", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getListRoom", {
         idApartment: idNha.toString(),
       })
       .then((response) => {

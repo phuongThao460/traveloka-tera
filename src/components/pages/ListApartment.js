@@ -27,7 +27,7 @@ class ListApartment extends React.Component {
   };
   showApartmentStatus1 = () => {
     axios
-      .post("http://localhost:33456/api/partner/showListApartmentStatus1", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus1", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {
@@ -39,7 +39,7 @@ class ListApartment extends React.Component {
   };
   getTypeApart(idStyle){
     axios
-      .post("http://localhost:33456/api/partner/getTypeApart", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getTypeApart", {
         idType: idStyle.toString(),
       })
       .then((response) => {
@@ -49,7 +49,7 @@ class ListApartment extends React.Component {
   };
   showApartmentStatus2 = () => {
     axios
-      .post("http://localhost:33456/api/partner/showListApartmentStatus2", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus2", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {
@@ -61,7 +61,7 @@ class ListApartment extends React.Component {
   };
   showApartmentStatus3 = () => {
     axios
-      .post("http://localhost:33456/api/partner/showListApartmentStatus3", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus3", {
         idTk: localStorage.getItem("idTk"),
       })
       .then((result) => {
@@ -77,7 +77,7 @@ class ListApartment extends React.Component {
   };
   changeActive = (idNha) => {
     axios
-      .post("http://localhost:33456/api/partner/changeActive", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeActive", {
         idNha: idNha.toString(),
       })
       .then((result) => {
@@ -88,7 +88,7 @@ class ListApartment extends React.Component {
   };
   changeUnactive = (idNha) => {
     axios
-      .post("http://localhost:33456/api/partner/changeUnactive", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeUnactive", {
         idNha: idNha.toString(),
       })
       .then((result) => {
@@ -99,7 +99,7 @@ class ListApartment extends React.Component {
   };
   deleteApartment = (idNha) => {
     axios
-      .post("http://localhost:33456/api/partner/deleteRoom", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/deleteRoom", {
         idNha: idNha.toString(),
       })
       .then((result) => {
@@ -108,7 +108,7 @@ class ListApartment extends React.Component {
       })
       .catch((err) => alert(err.result));
     axios
-      .post("http://localhost:33456/api/partner/deleteApartment", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/deleteApartment", {
         idNha: idNha.toString(),
       })
       .then((result) => {

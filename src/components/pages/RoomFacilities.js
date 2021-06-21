@@ -17,7 +17,7 @@ export default class RoomFacilities extends Component {
   getListAnimal = () => {
     axios
       .post(
-        "http://localhost:33456/api/partner/registrationDetail/getListRoomFacility",
+        "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListRoomFacility",
         {}
       )
       .then((response) => {

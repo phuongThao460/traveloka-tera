@@ -16,7 +16,7 @@ class LoginForm extends Component {
   }
   confirmLogin = () => {
     axios
-      .post("http://localhost:33456/api/partner/signin", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/signin", {
         username: this.loginNameRef.current.value,
         password: this.loginPWRef.current.value,
       })

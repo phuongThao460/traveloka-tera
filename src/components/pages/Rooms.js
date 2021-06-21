@@ -28,7 +28,7 @@ class Rooms extends Component {
   }
   createRoom = () => {
     axios
-      .post("http://localhost:33456/api/partner/registrationDetail/createRoom", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/createRoom", {
         idApart: this.state.idApart.toString(),
         roomName: this.roomName.current.value,
         idStyleRoom: this.state.idRoom,
@@ -52,7 +52,7 @@ class Rooms extends Component {
   getListRoom = () => {
     axios
       .post(
-        "http://localhost:33456/api/partner/registrationDetail/getListRoomType",
+        "https://rental-apartment-huflit.herokuapp.com6/api/partner/registrationDetail/getListRoomType",
         {}
       )
       .then((response) => {
@@ -63,7 +63,7 @@ class Rooms extends Component {
   getListBed = () => {
     axios
       .post(
-        "http://localhost:33456/api/partner/registrationDetail/getListBedType",
+        "https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListBedType",
         {}
       )
       .then((response) => {

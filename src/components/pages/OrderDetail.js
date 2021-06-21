@@ -17,7 +17,7 @@ class OrderDetail extends React.Component {
   }
   getDetailOrder = (idCustomer) => {
     axios
-      .post("http://localhost:33456/api/partner/getDetailOrder", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getDetailOrder", {
         idOrder: idCustomer.toString(),
       })
       .then((result) => {
@@ -31,7 +31,7 @@ class OrderDetail extends React.Component {
   };
   changeHiredAction = (idNha, idOrder) => {
     axios
-      .post("http://localhost:33456/api/partner/changeHired", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeHired", {
         idNha: idNha.toString(),
       })
       .then((result) => {
@@ -40,7 +40,7 @@ class OrderDetail extends React.Component {
       })
       .catch((err) => console.log(err.result));
     axios
-      .post("http://localhost:33456/api/partner/changeStatusAction", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeStatusAction", {
         idOrder: idOrder.toString(),
       })
       .then((result) => {
@@ -50,7 +50,7 @@ class OrderDetail extends React.Component {
   };
   changeCancelledActive = (idNha,idOrder) => {
     axios
-      .post("http://localhost:33456/api/partner/changeStatusCancelled", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeStatusCancelled", {
         idOrder: idOrder.toString(),
       })
       .then((result) => {
@@ -59,7 +59,7 @@ class OrderDetail extends React.Component {
       })
       .catch((err) => console.log(err.result));
       axios
-      .post("http://localhost:33456/api/partner/changeActive", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeActive", {
         idNha: idNha.toString(),
       })
       .then((result) => {
@@ -70,7 +70,7 @@ class OrderDetail extends React.Component {
   };
   changeActiveFinished = (idNha,idOrder) => {
     axios
-      .post("http://localhost:33456/api/partner/changeActive", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeActive", {
         idNha: idNha.toString(),
       })
       .then((result) => {
@@ -79,7 +79,7 @@ class OrderDetail extends React.Component {
       })
       .catch((err) => console.log(err.result));
     axios
-      .post("http://localhost:33456/api/partner/changeStatusFinished", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeStatusFinished", {
         idOrder: idOrder.toString(),
       })
       .then((result) => {
@@ -90,7 +90,7 @@ class OrderDetail extends React.Component {
   };
   checkOrderCancel = (idOrder) => {
     axios
-      .post("http://localhost:33456/api/partner/checkOrderCancel", {
+      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/checkOrderCancel", {
         idOrder: idOrder.toString(),
       })
       .then((result) => {
