@@ -24,12 +24,9 @@ class AddHomeBlock extends React.Component {
           "/registrationDetail/generationInformation/" + this.state.idTT
         );
       } else {
-        this.setState(this);
-        if (this.state.idTk !== "0") {
-          this.props.history.push(
-            "/registrationDetail/mainContact/" + localStorage.getItem("idTk")
-          );
-        }
+        this.props.history.push(
+          "/registrationDetail/mainContact/" + localStorage.getItem("idTk")
+        );
       }
     });
   };
