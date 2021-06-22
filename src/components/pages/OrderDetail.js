@@ -105,36 +105,126 @@ class OrderDetail extends React.Component {
     return (
       <>
         <Navbar />
-        <h2>THONG TIN DON DAT HANG</h2>
-        <p> ma dat can ho: {lstOrder.ID_DATCANHO}</p>
-        <p>Ma nha dat: {lstOrder.ID_NHA}</p>
-        <p>Ngay dat: {lstOrder.NGAYDAT}</p>
-        <p>checkin: {lstOrder.CHECKIN}</p>
-        <p>checkout: {lstOrder.CHECKOUT}</p>
-        <p>ngay den: {lstOrder.NGAY_DEN}</p>
-        <p>ngay di: {lstOrder.NGAY_DI}</p>
-        <p>tong tien phong: {lstOrder.TONGTIEN_PHONG}</p>
-        <p>bua sang: {lstOrder.BUASANG}</p>
-        <p>tong tien bua sang: {lstOrder.TONGTIEN_BUASANG}</p>
-        <p>so giuong phu: {lstOrder.SO_GIUONGPHU}</p>
-        <p>tong tien giuong phu: {lstOrder.TONGTIEN_GIUONGPHU}</p>
-        <p>thue GTGT: {lstOrder.PHI_GTGT}</p>
-        <p>tong tien: {lstOrder.TONGTIEN}</p>
-        <p>ghi chu: {lstOrder.GHICHU}</p>
-        <p>tinh trang dat can ho: {lstOrder.ID_TT_DCH}</p>
-        <h2>THONG TIN KHACH HANG</h2>
-        <p>Ten khach hang: {lstCustom.TEN_KHACHHANG}</p>
-        <p>Email: {lstCustom.EMAIL}</p>
-        <p>so dien thoai: {lstCustom.PHONE_NUMBER}</p>
-        <p>ma giay to tuy than: {lstCustom.MA_GIAYTOTUYTHAN}</p>
-        <p>loai giay to tuy than: {lstCustom.LOAI_GIAYTOTUYTHAN}</p>
-        <p>quoc tich: {lstCustom.QUOCTICH}</p>
-        <p>gioi tinh: {lstCustom.GIOITINH ? "Nữ" : "Nam"}</p>
+        <div className="btn-back">
+          <Link
+            to={"/lstOrder/" + localStorage.getItem("idTk")}
+            className="back-list-order"
+          >
+            <i class="far fa-arrow-alt-circle-left" aria-hidden="true" style={{display: "flex"}}>
+              <p style={{marginLeft: "8px"}}>Back to list</p>
+            </i>
+          </Link>
+        </div>
+        <div className="block-infor-order" style={{display: "flex"}}>
+        <div className="table-detail">
+        <table className="table-infor">
+          <tr className="css-title-orderDetail">ORDER INFORMATION</tr>
+          <tr>
+            <td>ID Order</td>
+            <td className="value-orderDetail">{lstOrder.ID_DATCANHO}</td>
+          </tr>
+          <tr>
+            <td>ID Apartment</td>
+            <td className="value-orderDetail">{lstOrder.ID_NHA}</td>
+          </tr>
+          <tr>
+            <td>Booking date</td>
+            <td className="value-orderDetail">{lstOrder.NGAYDAT}</td>
+          </tr>
+          <tr>
+            <td>Check-in</td>
+            <td className="value-orderDetail">{lstOrder.CHECKIN}</td>
+          </tr>
+          <tr>
+            <td>Check-out</td>
+            <td className="value-orderDetail">{lstOrder.CHECKOUT}</td>
+          </tr>
+          <tr>
+            <td>Arrival date</td>
+            <td className="value-orderDetail">{lstOrder.NGAY_DEN}</td>
+          </tr>
+          <tr>
+            <td>Return day</td>
+            <td className="value-orderDetail">{lstOrder.NGAY_DI}</td>
+          </tr>
+          <tr>
+            <td>Total room rate</td>
+            <td className="value-orderDetail">{lstOrder.TONGTIEN_PHONG}</td>
+          </tr>
+          <tr>
+            <td>Breakfast</td>
+            <td className="value-orderDetail">{lstOrder.BUASANG}</td>
+          </tr>
+          <tr>
+            <td> Total breakfast</td>
+            <td className="value-orderDetail">{lstOrder.TONGTIEN_BUASANG}</td>
+          </tr>
+          <tr>
+            <td>Total number of extra beds</td>
+            <td className="value-orderDetail">{lstOrder.SO_GIUONGPHU}</td>
+          </tr>
+          <tr>
+            <td>Total extra bed</td>
+            <td className="value-orderDetail">{lstOrder.TONGTIEN_GIUONGPHU}</td>
+          </tr>
+          <tr>
+            <td>VAT</td>
+            <td className="value-orderDetail">{lstOrder.PHI_GTGT}</td>
+          </tr>
+          <tr>
+            <td>Total money</td>
+            <td className="value-orderDetail">{lstOrder.TONGTIEN}</td>
+          </tr>
+          <tr>
+            <td>Note</td>
+            <td className="value-orderDetail">{lstOrder.GHICHU}</td>
+          </tr>
+          <tr>
+            <td>Apartment booking status</td>
+            <td className="value-orderDetail">{lstOrder.ID_TT_DCH}</td>
+          </tr>
+        </table>
+        </div>
+        {/* thông tin khách hàng */}
+        <div className="info-customer">
+          <table className="table-infor">
+          <tr className="css-title-orderDetail">CUSTOMER INFORMATION</tr>
+          <tr>
+            <td>Customer name</td>
+            <td className="value-orderDetail">{lstCustom.TEN_KHACHHANG}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td className="value-orderDetail">{lstCustom.EMAIL}</td>
+          </tr>
+          <tr>
+            <td>Phone Number</td>
+            <td className="value-orderDetail">{lstCustom.PHONE_NUMBER}</td>
+          </tr>
+          <tr>
+            <td>ID Number</td>
+            <td className="value-orderDetail">{lstCustom.MA_GIAYTOTUYTHAN}</td>
+          </tr>
+          <tr>
+            <td>Identification</td>
+            <td className="value-orderDetail">{lstCustom.LOAI_GIAYTOTUYTHAN}</td>
+          </tr>
+          <tr>
+            <td>Nationality</td>
+            <td className="value-orderDetail">{lstCustom.QUOCTICH}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td className="value-orderDetail">{lstCustom.GIOITINH ? "Nữ" : "Nam"}</td>
+          </tr>
+          </table>
+          <div className="form-btn-status">
         {this.state.freeCancel ? (
           lstOrder.ID_TT_DCH === 1 ? (
             <>
               <button
                 className="btn btn-success"
+                
                 onClick={() =>
                   this.changeHiredAction(lstOrder.ID_NHA, lstOrder.ID_DATCANHO)
                 }
@@ -144,13 +234,11 @@ class OrderDetail extends React.Component {
               <button
                 button
                 className="btn btn-danger"
+                style={{marginLeft:"50px"}}
                 onClick={() => this.changeCancelledActive(lstOrder.ID_NHA,lstOrder.ID_DATCANHO)}
               >
                 Cancel
               </button>
-              <Link to={"/lstOrder/" + localStorage.getItem("idTk")}>
-                Back to list
-              </Link>
             </>
           ) : lstOrder.ID_TT_DCH === 2 ? (
             <>
@@ -162,16 +250,14 @@ class OrderDetail extends React.Component {
               </button>
               <button
                 className="btn btn-danger"
+                style={{marginLeft:"50px"}}
                 onClick={() => this.changeCancelledActive(lstOrder.ID_NHA,lstOrder.ID_DATCANHO)}
               >
                 Cancel
               </button>
-              <Link to={"/lstOrder/" + localStorage.getItem("idTk")}>
-                Back to list
-              </Link>
             </>
           ) : (
-            <Link to={"/lstOrder/" + localStorage.getItem("idTk")}>
+            <Link to={"/lstOrder/" + localStorage.getItem("idTk")} style={{color:"#f5f5f5"}}>
               Back to list
             </Link>
           )
@@ -185,9 +271,7 @@ class OrderDetail extends React.Component {
             >
               Action
             </button>
-            <Link to={"/lstOrder/" + localStorage.getItem("idTk")}>
-              Back to list
-            </Link>
+            
           </>
         ) : lstOrder.ID_TT_DCH === 2 ? (
           <>
@@ -197,15 +281,21 @@ class OrderDetail extends React.Component {
             >
               Finished
             </button>
-            <Link to={"/lstOrder/" + localStorage.getItem("idTk")}>
-              Back to list
-            </Link>
           </>
         ) : (
-          <Link to={"/lstOrder/" + localStorage.getItem("idTk")}>
-            Back to list
-          </Link>
+          <button className="link-back">
+            <Link to={"/lstOrder/" + localStorage.getItem("idTk")} >
+              Back to list
+            </Link>
+          </button>
         )}
+        </div>
+        
+        </div>
+        
+        </div>
+        
+        
       </>
     );
   }
