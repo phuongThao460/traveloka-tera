@@ -17,8 +17,8 @@ class LoginForm extends Component {
   confirmLogin = () => {
     axios
       .post("https://gift-api-v1.herokuapp.com/partner/login", {
-        username: this.loginNameRef.current.value,
-        password: this.loginPWRef.current.value,
+        email: this.loginNameRef.current.value,
+        mat_khau: this.loginPWRef.current.value,
       })
       .then((result) => {
         this.state.idTk = result.data;
