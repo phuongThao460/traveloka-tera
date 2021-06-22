@@ -3,6 +3,7 @@ import React, { Component, createRef } from "react";
 import "../../RegistrationDetail.css";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import NumberFormat from 'react-number-format';
 class GenerationInformation extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,8 @@ class GenerationInformation extends Component {
       lstCity: [],
       lstDistrict: [],
       trangThai: "1",
+      MAX_VAL: 1400,
+      MIN_VAL: 0,
       idMain: document.location.pathname.substring(42),
     };
     this.idNha = createRef();
@@ -34,6 +37,7 @@ class GenerationInformation extends Component {
     this.idQuan = createRef();
     this.soNguoi = createRef();
     this.soGiuongPhu = createRef();
+    this.giaGiuong = createRef();
     this.gia = createRef();
     this.khuyenMai = createRef();
     this.trangThai = createRef();
@@ -46,6 +50,11 @@ class GenerationInformation extends Component {
     this.getListCountry();
     this.getListStyle();
   }
+  withValueCap = (inputObj) => {
+    const { value } = inputObj;
+    if (value <= this.state.MAX_VAL && value >= this.state.MIN_VAL) return true;
+    return false;
+  };
   createApartment = () => {
     Axios.post(
       // Sửa cái này nè, đoi sv rồi
@@ -62,6 +71,7 @@ class GenerationInformation extends Component {
         khoangCachTT: this.khoangCachTT.current.value,
         soTang: this.soTang.current.value,
         buaSang: this.buaSang.current.value,
+        giaGiuong: this.giaGiuong.current.value,
         soNha: this.soNha.current.value,
         tenDuong: this.tenDuong.current.value,
         dienTich: this.dienTich.current.value,
@@ -232,6 +242,7 @@ class GenerationInformation extends Component {
                                       touched="true"
                                       type="text"
                                       className="css-txt -control"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -279,6 +290,7 @@ class GenerationInformation extends Component {
                                       touched="true"
                                       type="text"
                                       className="css-txt -control"
+                                      required
                                     />
                                   </div>
                                 </div>
@@ -562,12 +574,13 @@ class GenerationInformation extends Component {
                               <div className="input control-container css-radio-gr">
                                 <div className="__inner">
                                   <div className="__padder">
-                                    <input
+                                  <NumberFormat className="css-txt -control" getInputRef={this.dienTich} isAllowed={this.withValueCap} allowNegative={false} allowEmptyFormatting={false}/>
+                                    {/* <input
                                       ref={this.dienTich}
                                       touched="true"
-                                      type="text"
+                                      type="number"
                                       className="css-txt -control"
-                                    />
+                                    /> */}
                                   </div>
                                 </div>
                               </div>
@@ -723,12 +736,13 @@ class GenerationInformation extends Component {
                                   >
                                     <div className="__inner">
                                       <div className="__padder">
-                                        <input
+                                      <NumberFormat className="css-txt -control" getInputRef={this.khoangCachTT} isAllowed={this.withValueCap} allowNegative={false} allowEmptyFormatting={false} />
+                                        {/* <input
                                           ref={this.khoangCachTT}
                                           touched="true"
-                                          type="text"
+                                          type="number"
                                           className="css-txt -control"
-                                        />
+                                        /> */}
                                       </div>
                                     </div>
                                   </div>
@@ -764,12 +778,13 @@ class GenerationInformation extends Component {
                                   <div className="input control-container css-radio-gr">
                                     <div className="__inner">
                                       <div className="__padder">
-                                        <input
+                                      <NumberFormat allowNegative={false} allowEmptyFormatting={false} className="css-txt -control" getInputRef={this.soTang} isAllowed={this.withValueCap} />
+                                        {/* <input
                                           ref={this.soTang}
                                           touched="true"
-                                          type="text"
+                                          type="number"
                                           className="css-txt -control"
-                                        />
+                                        /> */}
                                       </div>
                                     </div>
                                   </div>
@@ -800,12 +815,13 @@ class GenerationInformation extends Component {
                                   <div className="input control-container css-radio-gr">
                                     <div className="__inner">
                                       <div className="__padder">
-                                        <input
+                                      <NumberFormat allowNegative={false} allowEmptyFormatting={false} className="css-txt -control" getInputRef={this.soNguoi} isAllowed={this.withValueCap} />
+                                        {/* <input
                                           ref={this.soNguoi}
                                           touched="true"
-                                          type="text"
+                                          type="number"
                                           className="css-txt -control"
-                                        />
+                                        /> */}
                                       </div>
                                     </div>
                                   </div>
@@ -836,12 +852,47 @@ class GenerationInformation extends Component {
                                   <div className="input control-container css-radio-gr">
                                     <div className="__inner">
                                       <div className="__padder">
-                                        <input
+                                      <NumberFormat allowNegative={false} allowEmptyFormatting={false} className="css-txt -control" getInputRef={this.soGiuongPhu} isAllowed={this.withValueCap} />
+                                        {/* <input
                                           ref={this.soGiuongPhu}
                                           touched="true"
-                                          type="text"
+                                          type="number"
                                           className="css-txt -control"
-                                        />
+                                        /> */}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="line css-line"
+                            style={{ marginTop: "0px" }}
+                          ></div>
+                          {/*  Additional Breakfast Charge */}
+                          <div className="box-row css-row">
+                            <div
+                              className="box-column css-box-col"
+                              style={{ marginTop: "8px" }}
+                            >
+                              <label className="box-label css-label">
+                                <span>
+                                  Price of Extra Bed
+                                </span>
+                              </label>
+                            </div>
+                            <div className="box-column css-column">
+                              <div className="input-group css-inp">
+                                <div className="input-group__inner">
+                                  <div className="input-group-addon css-number-2">
+                                    <span>VND</span>
+                                  </div>
+                                  <div className="input control-container css-radio-gr">
+                                    <div className="__inner">
+                                      <div className="__padder">
+                                      <NumberFormat allowNegative={false} allowEmptyFormatting={false} thousandSeparator={true} className="css-txt-2 -control" style={{ width: "170px" }}
+                                            getInputRef ={this.giaGiuong}/>
                                       </div>
                                     </div>
                                   </div>
@@ -875,12 +926,14 @@ class GenerationInformation extends Component {
                                   <div className="input control-container css-radio-gr">
                                     <div className="__inner">
                                       <div className="__padder">
-                                        <input
+                                      <NumberFormat allowNegative={false} allowEmptyFormatting={false} thousandSeparator={true} className="css-txt-2 -control" style={{ width: "170px" }}
+                                            getInputRef ={this.buaSang}/>
+                                        {/* <input
                                           ref={this.buaSang}
                                           touched="true"
                                           type="text"
                                           className="css-txt-2 -control"
-                                        />
+                                        /> */}
                                       </div>
                                     </div>
                                   </div>
@@ -1008,19 +1061,23 @@ class GenerationInformation extends Component {
                               </label>
                               <div className="input-group css-inp">
                                 <div className="input-group__inner">
+                                <div className="input-group-addon css-number-2">
+                                    <span>VND</span>
+                                  </div>
                                   <div className="timepicker control-container css-radio-gr">
                                     <div className="__inner">
                                       <div className="__padder">
-                                        <input
+                                      <NumberFormat allowNegative={false} allowEmptyFormatting={false} thousandSeparator={true} className="-control css-txt-2" style={{ width: "170px" }}
+                                            getInputRef ={this.gia}/>
+                                        {/* <input
                                           style={{ width: "250px" }}
                                           ref={this.gia}
-                                          id="time"
+                                          id="gia"
                                           type="number"
                                           min="100000"
                                           max="100000000"
-                                          defaultValue="07:30"
                                           className="-control css-txt"
-                                        />
+                                        /> */}
                                       </div>
                                     </div>
                                   </div>
@@ -1048,22 +1105,29 @@ class GenerationInformation extends Component {
                               </label>
                               <div className="input-group css-inp">
                                 <div className="input-group__inner">
+                                <div className="input-group-addon css-number-2">
+                                    <span>VND</span>
+                                  </div>
                                   <div className="timepicker control-container css-radio-gr">
                                     <div className="__inner">
                                       <div className="__padder">
                                         <div
                                           className="time-clock"
-                                          noValidate
                                           style={{ position: "relative" }}
                                         >
-                                          <input
+                                          <NumberFormat allowNegative={false} allowEmptyFormatting={false} thousandSeparator={true} className="-control css-txt-2" style={{ width: "170px" }}
+                                            getInputRef ={this.khuyenMai}/>
+                                          {/* <input
+                                            thousandSeparator={true} 
+                                            prefix={'$'}
                                             style={{ width: "250px" }}
                                             ref={this.khuyenMai}
                                             type="number"
+                                            step="1000"
                                             min="100000"
                                             max="100000000"
                                             className="-control css-txt"
-                                          />
+                                          /> */}
                                         </div>
                                       </div>
                                     </div>
