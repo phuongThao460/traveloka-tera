@@ -8,7 +8,7 @@ class AddHomeBlock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      idTk: localStorage.getItem("idTk"),
+      idTk: localStorage.getItem("idTk").toString(),
 			idTT: 0,
     };
   } 
