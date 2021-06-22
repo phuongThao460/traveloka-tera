@@ -27,7 +27,7 @@ class LoginForm extends Component {
         } else {
           window.localStorage.setItem("idTk", result.data);
           window.localStorage.setItem(
-            "username",
+            "email",
             this.loginNameRef.current.value
           );
           this.setState(this);
