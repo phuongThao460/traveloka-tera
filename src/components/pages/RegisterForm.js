@@ -8,7 +8,7 @@ class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idTk: 0,
+      idTk: 50,
       role: "CHBT",
     };
     this.loginNameRef = createRef();
@@ -17,6 +17,7 @@ class RegisterForm extends Component {
   confirmRegister = () => {
     axios
       .post("https://rental-apartment-huflit.herokuapp.com/api/partner/register", {
+        id: this.state.idTk.toString(),
         username: this.loginNameRef.current.value,
         password: this.loginPWRef.current.value,
       })
