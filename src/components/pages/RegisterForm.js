@@ -16,10 +16,13 @@ class RegisterForm extends Component {
   }
   confirmRegister = () => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/register", {
-        id: this.state.idTk.toString(),
-        username: this.loginNameRef.current.value,
-        password: this.loginPWRef.current.value,
+      .post("https://gift-api-v1.herokuapp.com/partner/partner/register", {
+        ten_doanh_nghiep: "",
+        sdt: "",
+        email: this.loginNameRef.current.value,
+        mat_khau: this.loginPWRef.current.value,
+        ten_viet_tat: "APM",
+        nguoi_dai_dien: "Apartment"
       })
       .then((result) => {
         alert(result.data);

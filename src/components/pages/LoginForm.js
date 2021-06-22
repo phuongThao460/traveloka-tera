@@ -21,15 +21,12 @@ class LoginForm extends Component {
         mat_khau: this.loginPWRef.current.value,
       })
       .then((result) => {
-        this.state.idTk = result.data;
+        this.state.idTk = result.data.id;
         if (result.data === "Username or Password not correct") {
           alert(result.data);
         } else {
-          window.localStorage.setItem("idTk", result.data);
-          window.localStorage.setItem(
-            "email",
-            this.loginNameRef.current.value
-          );
+          window.localStorage.setItem("idTk", result.data.id);
+          window.localStorage.setItem("email",this.loginNameRef.current.value);
           this.setState(this);
           if (this.state.id !== "0") {
             this.props.history.push("/AddHomeBlock/" + this.state.idTk);
