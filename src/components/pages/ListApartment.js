@@ -229,7 +229,7 @@ class ListApartment extends React.Component {
                       <td>
                         <button
                           className="btn btn-success"
-                          style={{marginRight: '10px'}}
+                          style={{marginLeft: '10px'}}
                           onClick={() => this.changeActive(item.ID_NHA)}
                         >
                           Active
@@ -244,6 +244,7 @@ class ListApartment extends React.Component {
                         <Link
                           to={'/apartmentInfo/' + item.ID_NHA}
                           className="btn btn-link"
+                          style={{marginLeft: "10px"}}
                         >
                           View
                         </Link>
