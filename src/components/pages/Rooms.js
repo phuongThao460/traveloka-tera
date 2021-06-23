@@ -65,7 +65,7 @@ class Rooms extends Component {
   getListRoom = () => {
     axios
       .post(
-        'https://rental-apartment-huflit.herokuapp.com6/api/partner/registrationDetail/getListRoomType',
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/registrationDetail/getListRoomType',
         {}
       )
       .then((response) => {

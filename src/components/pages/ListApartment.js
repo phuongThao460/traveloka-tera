@@ -8,6 +8,7 @@ class ListApartment extends React.Component {
     super(props);
     this.state = {
       toggleState: 1,
+      idTk: document.location.pathname.substring(14),
       idTT: 0,
       idApart: 0,
       idOrder: 0,
@@ -28,13 +29,16 @@ class ListApartment extends React.Component {
   showApartmentStatus1 = () => {
     axios
       .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus1", {
-        idTk: localStorage.getItem("idTk"),
+        idTk: localStorage.getItem("idTk").toString(),
       })
       .then((result) => {
         console.log(result.data);
         this.state.lstApartmentS1 = result.data;
-        //this.state.nameStyle = result.data[0].NHAs[0].ID_LOAINHA_LOAINHA
+        
         this.setState(this);
+      }).catch((error) => {
+        console.log(error.result);
+        console.log(localStorage.getItem("idTk").toString())
       });
   };
   getTypeApart(idStyle){
@@ -50,7 +54,7 @@ class ListApartment extends React.Component {
   showApartmentStatus2 = () => {
     axios
       .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus2", {
-        idTk: localStorage.getItem("idTk"),
+        idTk: this.state.idTk.toString(),
       })
       .then((result) => {
         //console.log(result.data[0].NHAs[0].ID_LOAINHA);
@@ -62,12 +66,12 @@ class ListApartment extends React.Component {
   showApartmentStatus3 = () => {
     axios
       .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus3", {
-        idTk: localStorage.getItem("idTk"),
+        idTk: this.state.idTk.toString(),
       })
       .then((result) => {
         console.log(result.data)
         this.state.lstApartmentS3 = result.data;
-        
+        console.log(localStorage.getItem("idTk").toString());
         this.setState(this);
       });
   };

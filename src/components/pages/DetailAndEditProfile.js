@@ -111,14 +111,14 @@ class Modal extends Component {
             </div>
             <div className="modal-body">
               <div className="form-horizontal">
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Full Name:
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.fullName}
@@ -127,14 +127,14 @@ class Modal extends Component {
                     />
                   </div>
                 </div>
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Email
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.email}
@@ -143,14 +143,14 @@ class Modal extends Component {
                     />
                   </div>
                 </div>
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Phone Number
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.phoneNumber}
@@ -159,14 +159,14 @@ class Modal extends Component {
                     />
                   </div>
                 </div>
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Identification Code
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.idenCode}
@@ -175,14 +175,14 @@ class Modal extends Component {
                     />
                   </div>
                 </div>
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Identification Type
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.idenType}
@@ -191,14 +191,14 @@ class Modal extends Component {
                     />
                   </div>
                 </div>
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Country
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.country}
@@ -208,7 +208,7 @@ class Modal extends Component {
                   </div>
                 </div>
                 {this.state.gender ? (
-                  <div class="form-group" style={{ display: "flex" }}>
+                  <div className="form-group" style={{ display: "flex" }}>
                     <label
                       className="control-label col-md-4"
                       style={{ maxWidth: "25.333333%" }}
@@ -222,7 +222,7 @@ class Modal extends Component {
                         id="radio-9"
                         style={{ width: "19px", height: "19px" }}
                         name="editContact,previousNameBoolean"
-                        value={this.state.gender.toString()}
+                        value={this.state.gender}
                         checked="true"
                         onChange={(e) => this.genderHandler(e)}
                       />
@@ -243,7 +243,7 @@ class Modal extends Component {
                           marginLeft: "25px",
                         }}
                         name="editContact,previousNameBoolean"
-                        value={!this.state.gender.toString()}
+                        value={!this.state.gender}
                         onChange={(e) => this.genderHandler(e)}
                       />
                       <label
@@ -256,7 +256,7 @@ class Modal extends Component {
                     </div>
                   </div>
                 ) : (
-                  <div class="form-group" style={{ display: "flex" }}>
+                  <div className="form-group" style={{ display: "flex" }}>
                     <label
                       className="control-label col-md-4"
                       style={{ maxWidth: "25.333333%" }}
@@ -270,7 +270,7 @@ class Modal extends Component {
                         id="radio-9"
                         style={{ width: "19px", height: "19px" }}
                         name="editContact,previousNameBoolean"
-                        value={!this.state.gender.toString()}
+                        value={!this.state.gender}
                         onChange={(e) => this.genderHandler(e)}
                       />
                       <label
@@ -304,14 +304,14 @@ class Modal extends Component {
                     </div>
                   </div>
                 )}
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Address
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.address}
@@ -320,14 +320,14 @@ class Modal extends Component {
                     />
                   </div>
                 </div>
-                <div class="form-group" style={{ display: "flex" }}>
+                <div className="form-group" style={{ display: "flex" }}>
                   <label
                     className="control-label col-md-4"
                     style={{ maxWidth: "25.333333%" }}
                   >
                     Tax Code
                   </label>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <input
                       style={{ height: "25px" }}
                       value={this.state.taxCode}
