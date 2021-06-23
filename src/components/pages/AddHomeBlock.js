@@ -23,7 +23,9 @@ class AddHomeBlock extends React.Component {
         this.props.history.push(
           "/registrationDetail/generationInformation/" + this.state.idTT
         );
-      } else {
+      } 
+    }).catch((error) => {
+      if(error.response.status === 500){
         this.props.history.push(
           "/registrationDetail/mainContact/" + localStorage.getItem("idTk")
         );
