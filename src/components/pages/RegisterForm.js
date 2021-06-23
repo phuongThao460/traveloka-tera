@@ -10,6 +10,7 @@ class RegisterForm extends Component {
     this.state = {
       idTk: 50,
       role: 'CHBT',
+      errorCatch: {}
     };
     this.loginNameRef = createRef();
     this.loginPWRef = createRef();
@@ -26,14 +27,16 @@ class RegisterForm extends Component {
         nguoi_dai_dien: 'Apartment',
       })
       .then((result) => {
-        alert(result.data);
-        this.props.history.push('/');
+        //alert(result.data.code)
+        if(result.data.code === "ER_DUP_ENTRY"){
+          alert("Email or Short Name are already exits")
+        } else {
+          this.props.history.push('/');
+        }
+        
       })
       .catch((error) => {
         console.log(error.response);
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
       });
   };
   confirmRegister2 = () => {
