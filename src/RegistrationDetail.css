@@ -1489,3 +1489,6 @@ td {
   font-weight: bold;
   font-size: 18px;
 }
+.table th:nth-last-child(n){
+  border-bottom: 1px solid #dee2e6;
+}

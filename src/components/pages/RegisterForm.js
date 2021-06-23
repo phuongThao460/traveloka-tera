@@ -1,47 +1,51 @@
 /* eslint-disable react/no-direct-mutation-state */
-import { Component, createRef } from "react";
-import "../../style/pages/RegisterForm.scss";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import {Component, createRef} from 'react';
+import '../../style/pages/RegisterForm.scss';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       idTk: 50,
-      role: "CHBT",
+      role: 'CHBT',
     };
     this.loginNameRef = createRef();
     this.loginPWRef = createRef();
+    this.shortName = createRef();
   }
   confirmRegister = () => {
     axios
-      .post("https://gift-api-v1.herokuapp.com/partner/partner/register", {
+      .post('https://gift-api-v1.herokuapp.com/partner/register', {
         ten_doanh_nghiep: "",
         sdt: "",
         email: this.loginNameRef.current.value,
         mat_khau: this.loginPWRef.current.value,
-        ten_viet_tat: "APM",
-        nguoi_dai_dien: "Apartment"
+        ten_viet_tat: this.shortName.current.value,
+        nguoi_dai_dien: 'Apartment',
       })
       .then((result) => {
         alert(result.data);
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch((error) => {
-        alert(error.data);
+        console.log(error.response);
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
       });
   };
   confirmRegister2 = () => {
     axios
-      .post("https://oka1kh.azurewebsites.net/api/partner", {
+      .post('https://oka1kh.azurewebsites.net/api/partner', {
         partnerUsername: this.loginNameRef.current.value,
         partnerPass: this.loginPWRef.current.value,
-        partnerRole: this.state.role
+        partnerRole: this.state.role,
       })
       .then((result) => {
         alert(result.data);
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch((error) => {
         alert(error.data);
@@ -61,6 +65,14 @@ class RegisterForm extends Component {
                 millions of guests!
               </p>
               <div className="reg-form">
+                <span className="form-label">Your Short Name</span>
+                <i className="fa fa-lock fa-lg position-absolute icon"></i>
+                <input
+                  type="text"
+                  placeholder="Enter your password here"
+                  ref={this.shortName}
+                  style={{width: '100%'}}
+                ></input>
                 <span className="form-label">Your email address</span>
                 <i className="fa fa-envelope icon"></i>
                 <input
@@ -70,12 +82,12 @@ class RegisterForm extends Component {
                   ref={this.loginNameRef}
                   rules={[
                     {
-                      type: "email",
-                      message: "The input is not valid E-mail!",
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
                     },
                     {
                       required: true,
-                      message: "Please input your E-mail!",
+                      message: 'Please input your E-mail!',
                     },
                   ]}
                 ></input>
@@ -86,16 +98,17 @@ class RegisterForm extends Component {
                   placeholder="Enter your password here"
                   ref={this.loginPWRef}
                 ></input>
-                <button onClick={this.confirmRegister} id="btn-next">
+
+                <button onClick={() => this.confirmRegister()} id="btn-next">
                   Register
                 </button>
               </div>
               <div className="line-spacing"></div>
               <p>
-                Already have an account?{" "}
+                Already have an account?{' '}
                 <Link
                   to="/"
-                  style={{ color: "rgb(88, 153, 214)", fontWeight: "600" }}
+                  style={{color: 'rgb(88, 153, 214)', fontWeight: '600'}}
                 >
                   Log in here
                 </Link>

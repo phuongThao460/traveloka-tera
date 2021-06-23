@@ -1,8 +1,8 @@
 /* eslint-disable react/no-direct-mutation-state */
-import React from "react";
-import axios from "axios";
-import Navbar from "../paner-form/Navbar";
-import { Link } from "react-router-dom"
+import React from 'react';
+import axios from 'axios';
+import Navbar from '../paner-form/Navbar';
+import {Link} from 'react-router-dom';
 class ListApartment extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +16,7 @@ class ListApartment extends React.Component {
       lstApartmentS1: [],
       lstApartmentS2: [],
       lstApartmentS3: [],
-      size: "small",
+      size: 'small',
       nameStyle: {},
     };
     this.showApartmentStatus1();
@@ -24,38 +24,48 @@ class ListApartment extends React.Component {
     this.showApartmentStatus3();
   }
   toggleTab = (index) => {
-    this.setState({ toggleState: index });
+    this.setState({toggleState: index});
   };
   showApartmentStatus1 = () => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus1", {
-        idTk: localStorage.getItem("idTk").toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus1',
+        {
+          idTk: localStorage.getItem('idTk').toString(),
+        }
+      )
       .then((result) => {
         console.log(result.data);
         this.state.lstApartmentS1 = result.data;
-        
+
         this.setState(this);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error.result);
-        console.log(localStorage.getItem("idTk").toString())
+        console.log(localStorage.getItem('idTk').toString());
       });
   };
-  getTypeApart(idStyle){
+  getTypeApart(idStyle) {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/getTypeApart", {
-        idType: idStyle.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/getTypeApart',
+        {
+          idType: idStyle.toString(),
+        }
+      )
       .then((response) => {
         this.state.nameStyle = response.data;
         this.setState(this);
       });
-  };
+  }
   showApartmentStatus2 = () => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus2", {
-        idTk: this.state.idTk.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus2',
+        {
+          idTk: this.state.idTk.toString(),
+        }
+      )
       .then((result) => {
         //console.log(result.data[0].NHAs[0].ID_LOAINHA);
         this.state.lstApartmentS2 = result.data;
@@ -65,25 +75,31 @@ class ListApartment extends React.Component {
   };
   showApartmentStatus3 = () => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus3", {
-        idTk: this.state.idTk.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/showListApartmentStatus3',
+        {
+          idTk: this.state.idTk.toString(),
+        }
+      )
       .then((result) => {
-        console.log(result.data)
+        console.log(result.data);
         this.state.lstApartmentS3 = result.data;
-        console.log(localStorage.getItem("idTk").toString());
+        console.log(localStorage.getItem('idTk').toString());
         this.setState(this);
       });
   };
   getOrder = () => {
     this.setState(this);
-    this.props.history.push("/lstOrder/" + localStorage.getItem("idTk"));
+    this.props.history.push('/lstOrder/' + localStorage.getItem('idTk'));
   };
   changeActive = (idNha) => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeActive", {
-        idNha: idNha.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/changeActive',
+        {
+          idNha: idNha.toString(),
+        }
+      )
       .then((result) => {
         console.log(result.data);
         window.location.reload();
@@ -92,9 +108,12 @@ class ListApartment extends React.Component {
   };
   changeUnactive = (idNha) => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/changeUnactive", {
-        idNha: idNha.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/changeUnactive',
+        {
+          idNha: idNha.toString(),
+        }
+      )
       .then((result) => {
         console.log(result.data);
         window.location.reload();
@@ -103,25 +122,31 @@ class ListApartment extends React.Component {
   };
   deleteApartment = (idNha) => {
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/deleteRoom", {
-        idNha: idNha.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/deleteRoom',
+        {
+          idNha: idNha.toString(),
+        }
+      )
       .then((result) => {
         console.log(result.data);
         //window.location.reload();
       })
       .catch((err) => alert(err.result));
     axios
-      .post("https://rental-apartment-huflit.herokuapp.com/api/partner/deleteApartment", {
-        idNha: idNha.toString(),
-      })
+      .post(
+        'https://rental-apartment-huflit.herokuapp.com/api/partner/deleteApartment',
+        {
+          idNha: idNha.toString(),
+        }
+      )
       .then((result) => {
         console.log(result.data);
         window.location.reload();
       })
       .catch((err) => {
         if (err.response.status === 500) {
-          alert("Cannot delete apartment ");
+          alert('Cannot delete apartment ');
         }
         console.log(err.response.status);
       });
@@ -130,8 +155,23 @@ class ListApartment extends React.Component {
     return (
       <>
         <Navbar />
-        <div className="container" style={{ paddingTop: "50px" }}>
-          <div style={{ float: "right", paddingRight: "3px" }}>
+        <div className="btn-backlist">
+          <Link
+            to={'/AddHomeBlock/' + localStorage.getItem('idTk')}
+            className="back-list-order"
+            style={{marginLeft: '25  0px'}}
+          >
+            <i
+              class="far fa-arrow-alt-circle-left"
+              aria-hidden="true"
+              style={{display: 'flex'}}
+            >
+              <p style={{marginLeft: '8px'}}>Turn Back</p>
+            </i>
+          </Link>
+        </div>
+        <div className="container" style={{paddingTop: '50px'}}>
+          <div style={{float: 'right', paddingRight: '3px'}}>
             <button onClick={() => this.getOrder()} className="btn-order">
               View Orders List
             </button>
@@ -139,7 +179,7 @@ class ListApartment extends React.Component {
           <div className="bloc-tabs">
             <button
               className={
-                this.state.toggleState === 1 ? "tabs active-tabs" : "tabs"
+                this.state.toggleState === 1 ? 'tabs active-tabs' : 'tabs'
               }
               onClick={() => this.toggleTab(1)}
             >
@@ -147,7 +187,7 @@ class ListApartment extends React.Component {
             </button>
             <button
               className={
-                this.state.toggleState === 2 ? "tabs active-tabs" : "tabs"
+                this.state.toggleState === 2 ? 'tabs active-tabs' : 'tabs'
               }
               onClick={() => this.toggleTab(2)}
             >
@@ -155,7 +195,7 @@ class ListApartment extends React.Component {
             </button>
             <button
               className={
-                this.state.toggleState === 3 ? "tabs active-tabs" : "tabs"
+                this.state.toggleState === 3 ? 'tabs active-tabs' : 'tabs'
               }
               onClick={() => this.toggleTab(3)}
             >
@@ -167,11 +207,11 @@ class ListApartment extends React.Component {
             <div
               className={
                 this.state.toggleState === 1
-                  ? "content  active-content"
-                  : "content"
+                  ? 'content  active-content'
+                  : 'content'
               }
             >
-              <table className="table" style={{ textAlign: "center" }}>
+              <table className="table" style={{textAlign: 'center'}}>
                 <thead>
                   <tr>
                     <th scope="col">ID Apartment</th>
@@ -189,19 +229,24 @@ class ListApartment extends React.Component {
                       <td>
                         <button
                           className="btn btn-success"
-                          style={{marginRight: "10px"}}
+                          style={{marginRight: '10px'}}
                           onClick={() => this.changeActive(item.ID_NHA)}
                         >
                           Active
                         </button>
                         <button
                           className="btn btn-danger"
-                          style={{marginLeft: "10px"}}
+                          style={{marginLeft: '10px'}}
                           onClick={() => this.deleteApartment(item.ID_NHA)}
                         >
                           Delete
                         </button>
-                        <Link to={"/apartmentInfo/" + item.ID_NHA} className="btn btn-link">View</Link>
+                        <Link
+                          to={'/apartmentInfo/' + item.ID_NHA}
+                          className="btn btn-link"
+                        >
+                          View
+                        </Link>
                       </td>
                     </tr>
                   ))}
@@ -212,11 +257,11 @@ class ListApartment extends React.Component {
             <div
               className={
                 this.state.toggleState === 2
-                  ? "content  active-content"
-                  : "content"
+                  ? 'content  active-content'
+                  : 'content'
               }
             >
-              <table className="table" style={{ textAlign: "center" }}>
+              <table className="table" style={{textAlign: 'center'}}>
                 <thead>
                   <tr>
                     <th scope="col">ID Apartment</th>
@@ -233,15 +278,15 @@ class ListApartment extends React.Component {
                       <td>{item.TEN_NHA}</td>
                       <td>
                         <button
-                        className="btn btn-light"
-                        style={{marginRight: "10px"}}
+                          className="btn btn-light"
+                          style={{marginRight: '10px'}}
                           onClick={() => this.changeUnactive(item.ID_NHA)}
                         >
                           Unactive
                         </button>
                         <button
                           className="btn btn-danger"
-                          style={{marginLeft: "10px"}}
+                          style={{marginLeft: '10px'}}
                           onClick={() => this.deleteApartment(item.ID_NHA)}
                         >
                           Delete
@@ -256,11 +301,11 @@ class ListApartment extends React.Component {
             <div
               className={
                 this.state.toggleState === 3
-                  ? "content  active-content"
-                  : "content"
+                  ? 'content  active-content'
+                  : 'content'
               }
             >
-              <table className="table" style={{ textAlign: "center" }}>
+              <table className="table" style={{textAlign: 'center'}}>
                 <thead>
                   <tr>
                     <th scope="col">ID Apartment</th>
