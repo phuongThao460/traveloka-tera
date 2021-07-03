@@ -150,7 +150,7 @@ class ApartmentInfo extends React.Component {
                 <td className="content-info">Acreage</td>
                 <td>
                 {this.state.lsRoom.CHIEUDAI_PHONG *
-                          this.state.lsRoom.CHIEURONG_PHONG}{" "}
+                          this.state.lsRoom.CHIEURONG_PHONG}
                         m2 ({this.state.lsRoom.CHIEUDAI_PHONG} x{" "}
                         {this.state.lsRoom.CHIEURONG_PHONG})
                 </td>
@@ -159,8 +159,8 @@ class ApartmentInfo extends React.Component {
                 <td className="content-info">Apartment area</td>
                 <td>{this.state.apartmentInfo.DIENTICH} m2</td>
                 <td className="content-info">Kind of room</td>
-                <td>{this.state.room.TEN_LOAIPHONG}
-                    ({this.state.lsRoom.SONGUOITOIDA} người)
+                <td>{this.state.room.TEN_LOAIPHONG === "" ? "None" : this.state.room.TEN_LOAIPHONG}{" "}
+                    (for {this.state.lsRoom.SONGUOITOIDA} people)
                   </td>
               </tr>
               <tr>
